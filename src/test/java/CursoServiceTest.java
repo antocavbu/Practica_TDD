@@ -1,5 +1,8 @@
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CursoServiceTest {
     @Test
@@ -18,5 +21,20 @@ public class CursoServiceTest {
         double esperado = 8.0;
         double resultado = service.calcularPromedio(notas);
         assertEquals(esperado, resultado, 0.01, "El promedio debe ser 8.0");
+    }
+
+    @Test
+    void testCalcularPromedioSinEstudiantes() {
+        CursoService service = new CursoService();
+        int[] notas = {};
+        assertThrows(IllegalArgumentException.class, () -> service.calcularPromedio(notas),
+                "Debe lanzar IllegalArgumentException si no hay estudiantes");
+    }
+
+    @Test
+    void testCalcularPromedioConNulo() {
+        CursoService service = new CursoService();
+        assertThrows(IllegalArgumentException.class, () -> service.calcularPromedio(null),
+                "Debe lanzar IllegalArgumentException si el arreglo es nulo");
     }
 }
