@@ -1,4 +1,8 @@
 public class CursoService {
+    public boolean verificarCupos(int inscritos, int cupoMaximo) {
+        // Sin implementación aún (TDD - Red)
+        return false;
+    }
     // Método a implementar
     public double calcularPromedio(int[] notas) {
         int suma = 0;
