@@ -1,7 +1,10 @@
 public class CursoService {
     // Método a implementar
     public double calcularPromedio(int[] notas) {
-        // Sin implementación aún (TDD - Red)
-        return 0;
+        int suma = 0;
+        for (int nota : notas) {
+            suma += nota;
+        }
+        return (double) suma / notas.length;
     }
 }
